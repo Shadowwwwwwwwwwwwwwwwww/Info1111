@@ -1,0 +1,466 @@
+\documentclass[a4paper, 11pt]{report}
+\usepackage{blindtext}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{titlesec}
+\usepackage{fancyhdr}
+\usepackage{geometry}
+\usepackage{fix-cm}
+\usepackage[hidelinks]{hyperref}
+\usepackage{graphicx}
+\usepackage{multirow}
+\usepackage[english]{babel}
+
+\geometry{ margin=30mm }
+\counterwithin{subsection}{section}
+\renewcommand\thesection{\arabic{section}.}
+\renewcommand\thesubsection{\thesection\arabic{subsection}.}
+\usepackage{tocloft}
+\renewcommand{\cftchapleader}{\cftdotfill{\cftdotsep}}
+\renewcommand{\cftsecleader}{\cftdotfill{\cftdotsep}}
+\setlength{\cftsecindent}{2.2em}
+\setlength{\cftsubsecindent}{4.2em}
+\setlength{\cftsecnumwidth}{2em}
+\setlength{\cftsubsecnumwidth}{2.5em}
+
+
+\begin{document}
+\titleformat{\section}
+{\normalfont\fontsize{15}{0}\bfseries}{\thesection}{1em}{}
+\titlespacing{\section}{0cm}{0.5cm}{0.15cm}
+\titleformat{\subsection}
+{\normalfont\fontsize{13}{0}\bfseries}{\thesubsection}{0.5em}{}
+\titlespacing{\section}{0cm}{0.5cm}{0.15cm}
+
+%=======================================================================================
+
+% #########################
+% IMPORTANT - Add student names here!
+% e.g. \newcommand{\stud1}{LOWE, David}
+\newcommand{\studA}{{FAMNAME1, givenName1}}
+\newcommand{\studB}{{FAMNAME2, givenName2}}
+\newcommand{\studC}{{FAMNAME3, givenName3}}
+\newcommand{\studD}{{FAMNAME4, givenName4}}
+% ADD ANOTHER LINE FOR A FIFTH MEMBER
+%
+% IMPORTANT - Then give your SIDs
+\newcommand{\sidA}{{01234567}}
+\newcommand{\sidB}{{01234567}}
+\newcommand{\sidC}{{01234567}}
+\newcommand{\sidD}{{01234567}}
+% ADD ANOTHER LINE FOR A FIFTH MEMBER
+
+%
+% IMPORTANT - And then update which major each student will focus on
+\newcommand{\majA}{{Computer Science}}
+\newcommand{\majB}{{Data Science}}
+\newcommand{\majC}{{SW Development}}
+\newcommand{\majD}{{Cyber Security}}
+% ADD ANOTHER LINE FOR A FIFTH MEMBER - HCI
+
+% #########################
+
+
+\pagenumbering{Alph}
+\begin{titlepage}
+\begin{flushright}
+\includegraphics[width=4cm]{USyd}\\[1cm]
+\end{flushright}
+
+\begin{centering}
+\textbf{\huge INFO1111: Computing 1A Professionalism}\\[0.75cm]
+\textbf{\huge 2025 Semester 1}\\[2cm]
+\textbf{\huge Skills: Team Project Report}\\[2cm]
+
+\textbf{\large Submission number: ?? Add your details}\\[0.5cm]
+\textbf{\large Github link: ?? Add your details}\\[0.75cm]
+\textbf{\huge Team Members:}\\[0.75cm]
+
+\begin{tabular}{|p{0.25\textwidth}|p{0.13\textwidth}|p{0.12\textwidth}|p{0.12\textwidth}|p{0.22\textwidth}|}
+	\hline
+	\multirow{2}{*}{Name} & \multirow{2}{*}{Student ID} & Target * & Target * & \multirow{2}{*}{Selected Major} \\
+	 & & Foundation & Advanced & \\
+	\hline
+	\hline
+	\raggedright{\studA} & \sidA & A & NA & \majA \\
+	\hline
+	\raggedright{\studB} & \sidB & A & NA & \majB \\
+	\hline
+	\raggedright{\studC} & \sidC & A & NA & \majC \\
+	\hline
+	\raggedright{\studD} & \sidD & A & NA & \majD \\
+	\hline
+\end{tabular}
+\\[0.5cm]
+\end{centering}
+
+* Use the following codes:
+\begin{itemize}
+\setlength\itemsep{0em}
+\item NA = Not attempting in this submission
+\item A = Attempting (not previously attempting)
+\item AW = Attempting (achieved weak in a previous submission) 
+\item AG = Attempting (achieved good in a previous submission)
+\item S = Already achieved strong in a previous submission
+\end{itemize}
+
+\thispagestyle{empty}
+\end{titlepage}
+\pagenumbering{arabic}
+
+
+%=======================================================================================
+
+\tableofcontents
+
+%=======================================================================================
+
+\newpage
+\section*{Instructions}
+
+\textbf{Important}: This section should be removed prior to submission.
+
+You should use this \LaTeX\ template to generate your team project report. Keep in mind the following key points:
+\begin{itemize}
+	\item \textbf{Selecting a major}: Each team member must select one of the computing degree majors (a different one for each student) - i.e. Computer Science; Data Science; Software Development; Cyber Security. If there are more than four members in your team then your tutor will suggest a fifth alternative. The choice for each student should be included in the table on the cover page.
+	\item \textbf{Teamwork}: Whilst the team project is just that -- a team project -- it has been designed to also allow different members of the team to achieve different outcomes. We do expect you to work together as a team -- i.e. your team can only submit a single report. There will be some sections that need to be worked on as a team, and some sections that are done individually. This means that your team will need to collaborate to combine your individual components for each submission. This collaborative aspect is a requirement for both the foundation and advanced tasks (since the two tasks are submitted using this one template). The only exception to this is where a member of the team has already achieved the level they are targeting (e.g. OK for the Foundation task) in a previous submission and has decided to not attempt higher levels, and so is not contributing anything further (this should be obvious because no target is indicated for that student on the cover page).
+	\item \textbf{Team problems}: If you do come across problems working together then the first step should be to discuss this with your tutor. You should do this as soon as possible, and not wait until it is too late for your tutor to address any problems.
+	\item \textbf{Choosing Levels}: Whilst the report is compiled as a team, for each submission each team member can individually attempt the foundation task, advanced task or neither, (though you need to achieve a "STRONG" on the foundation task before being eligible to attempt the advanced task). Each team member will then be individually assessed for the levels they have attempted.\\ 
+	For example, in the first submission, one team member attempted only the foundation task and the other three all attempted both the foundation task and the advanced task. For the one who attempted only the foundation task, they were not successful in achieving an "OK" (a pass) or a "STRONG" (opportunity to proceed to advanced task). In the second submission, they then reattempted the foundation task (successful – "STRONG"). For the third and final submission they could attempt the advanced task, or even just choose to not submit anything further and remain at the foundation "STRONG" rating.
+	\item \textbf{Minimum requirement}: Remember that in order to pass the unit, you must achieve at least foundation – "OK" rating by the end of the third submission.
+	\item \textbf{Assessment}: In order to attempt the advanced – "OK" or "STRONG" you must first have achieved foundation – "STRONG". This means that we will not assess any attempts made on the advanced task until the "STRONG" rating has been achieved on the foundation task. 
+	\item \textbf{Using this template}: When completing each section, you should remove the explanation text and replace it with your material. For each submission, each individual must complete their subsections and then collectively compile and submit the report.
+	\item \textbf{Referencing}: You should also ensure that any resources you use are suitably referenced, and references are included into the reference list at the end of this document. You should use the IEEE reference style \cite{usyd2} (the reference included here shows you how this can be easily achieved).
+\end{itemize}
+
+
+%=======================================================================================
+
+\newpage
+\section{Task 1 (Foundation): Core Skills}
+
+Throughout your Computing degree we will help you learn a range of new skills. Once you graduate however you will need to continue to learn new languages, new tools, new applications, etc. Task 1 focuses on core technical skills (related to \LaTeX\ and Git) and the key technical skills used in different computing jobs. Each member of the team should individually complete their subsection below. You should begin by allocating to each team member a different major to focus on (i.e. one of: Computer Science; Data Science; Software Development; Cyber Security). If you have a fifth member, then your tutor will suggest a fifth topic to cover. This allocation should be specified above (see lines 37-56 in the LaTeX file).
+
+Each member of your team is required to select one of the designated domains and collaboratively work on the scenario presented below. The primary objective is to reflect on the collaborative process and problem-solving strategies rather than solely focusing on the final solution.
+
+The focus is on your team’s collaborative process and problem solving skills rather than the solution itself. 
+
+You will need to integrate your information into this shared collaborative LaTeX document and compile the result.\\[2mm]
+
+Foundation is based on 3 components:\\[1mm]
+
+\textbf{Scenario: Collaborative Disaster Response System Development}
+
+{\begin{quote}\itshape
+With devastating natural disasters, such as the 2025 LA wildfires, communication between emergency services, volunteers, and affected communities is chaotic and inefficient.
+
+Develop an approach to streamline communication and optimise resource distribution during such crises. 
+\end{quote}}
+
+\textbf{ROLES:}
+\begin{itemize}
+    \item Computer Science (CS) domain develops the system infrastructure and applications to allow for integration between emergency services, databases, volunteers, and affected people. They will need to ensure this is automated and efficient in allocating resources.
+    \item Software Engineering (SE) will ensure the infrastructure is scalable and robust to manage unpredictability of material disasters and amount of people affected. The system must have offline capabilities since natural disasters can disrupt telecommunications. They will make sure the infrastructure runs smoothly and ensures its user friendly.
+    \item Cybersecurity protects communication channels from disruptions or hacks, protects personal data and ensures that access to confidential information is managed appropriately by authorised personnel. They will need to implement measures to mitigate false reporting or misinformation.
+    \item Data Science (DS) will use analytics including data visualisation to forecast natural disasters from historical and real time data. They need to identify high risk areas from multiple sources of data to optimise resource allocation, routes and most urgent areas of need for emergency responders.
+    \item If there is a 5th group member, Human-Computer Interaction (HCI) will ensure the system is intuitive and accessible for all users. This includes usability testing and refining the application and focusing on User Experience and Interaction (UI and UX) design.
+\end{itemize}
+
+\textbf{Component 1 Project management / technical skills:}
+
+The team is required to create a project on GitHub and manage their tasks using GitHub’s issue tracking system.
+
+\begin{itemize}
+    \item Create a project within your GitHub repository
+    \item Define tasks as issues and assign them to team members
+    \item Track task progress throughout the project lifecycle
+    \item Mark issues as resolved upon completion
+\end{itemize}
+For example, issue: ‘research 2 technical skills for Data Science’ and assign to John Applesmith. \\[2mm]
+
+\textbf{Component 2 Group questions:}
+
+\begin{itemize}
+    \item Describe your team’s collaborative process in developing a solution.
+    \item How did you approach the problem as a team, and what challenges did you encounter in working together? 
+    \item Discuss how your team arrived at your final approach, including the decision-making process, compromises made, and key turning points. 
+\end{itemize}
+Target: 300-500 words \\[2mm]
+
+\textbf{Component 3 Individual questions:}
+\begin{itemize}
+    \item Reflect on the skills relevant to your domain that were essential for this project. What technical or professional skills have you identified were relevant to the project? Refer to the Skills Framework for the Information Age (SFIA) list of skills \cite{sfia} and describe at least 2 skills per domain. 
+    \item How did working collaboratively on this project help you strengthen those skills? 
+    \item What professional or technical skills have you identified you need to develop or fine-tune?
+\end{itemize}
+
+Target: 300-400 words \\[2mm]
+
+
+\textbf{OVERALL REQUIREMENTS:}
+
+To achieve an "OK" rating for this task you must individually accomplish the following:
+\begin{itemize}
+\item Each member of your team \textbf{has been} allocated a different major (Computer Science, Data Science, Software Development, Cyber Security (and Human-Computer Interaction for a fifth member).
+\item Submission Contribution section is completed with each subsequent submission
+\item Each member of your team \textbf{has identified} 2 key technical skills that you would need to be able to work in the industry of your allocated major.
+	\begin{itemize}
+	\item Each skill must have an explanation on why it is a key skill required for the industry of the major ($\sim$100 words per skill).
+	\item The 2 key tech skills must be identified from the skills framework for the information age SFIA.
+	\end{itemize}
+\item Github \& LaTeX
+	\begin{itemize}
+	\item Your team has created a team repository on Github for the project and put a copy of the LaTeX template, bib file, and image file into the team repository (only needs to be done by one member of your team).
+    \item \item You have added your tutor to your git repository
+    \item Your team has created a GitHub project, created issues and allocated to each member, and closed issues upon completion
+	\item The information has been compiled into the shared collaborative LaTeX document using the template provided on Canvas with your team members sections - you have edited the LaTeX template to include your chosen major and responses to both the group discussion questions and individual questions.
+	\item You have cloned the team repository to your local machine.
+	\item Provide evidence that you can compile from the command line (provide screenshots of the command entered and output).
+	\item Provide evidence that you can commit to your local repo (provide screenshots of the steps taken to commit to their local repo).
+	\end{itemize}
+\item Referencing
+	\begin{itemize}
+	\item You have provided in-text references (IEEE) to support your claims or where they gathered the information from.
+	\item You have a reference list following the IEEE referencing guidelines.
+	\item Some common things to look for to see whether your have correctly followed the referencing guide are:
+		\begin{itemize}
+		\item The sources you have listed are only the sources that are present in-text.
+		\item All sources seen in-text are included in the reference list.
+		\item You followed the correct convention for references that don’t have author’s details or multiple sources have the same author and year of publication
+		\item You have included the required information for the source type as outlined in the guide.
+		\item Sources are not a list (i.e. dotpoints)
+		\end{itemize}
+	\end{itemize}
+\end{itemize}
+
+To achieve a "STRONG" rating, you must individually accomplish all of the above in addition to the following:\\
+Demonstrate the following to your tutor during the tutorial:
+\begin{itemize}
+\item You are able to retrieve your team’s shared repo
+\item You are able to make changes, recompile, commit changes, and push back to repo.
+\item Note: you should also provide screen-shots of relevant actions taken to make changes, recompile etc. does not require you to provide evidence of detailing conflicts.
+\end{itemize}
+
+
+% =======================================================
+\subsection{Group response}
+
+Your text goes here
+
+
+\subsection{Skills for \majA: \studA}
+
+Your text goes here
+
+\subsection{Skills for \majB: \studB}
+
+Your text goes here
+
+\subsection{Skills for \majC: \studC}
+
+Your text goes here
+
+\subsection{Skills for \majD: \studD}
+
+Your text goes here
+
+%add a fifth subsection if there is a fifth member
+
+% ========================================================
+
+\newpage
+\section{Task 2 (Advanced): Advanced Skills}
+
+Task 2 contains two components (both required).\\[2mm]
+
+\textbf{Component 1: Project management}
+
+The team is required to extend on your project on GitHub.
+
+\begin{itemize}
+    \item Add issues and assign as the project progresses
+    \item Create parent issues and subdivide tasks into sub-issues
+    \item Filter for fields in the project
+    \item Create a line chart using GitHub project chart to represent project activity over time
+\end{itemize} 
+
+\vspace{4ex}
+
+\textbf{Component 2: Exploration of Tech Tools}
+
+This component focuses on researching and exploring industry-relevant tools within each domain and is split into 2 parts.
+
+\vspace{2ex}
+
+
+\textbf{Part A:}
+
+Each student must undertake an exploratory analysis of the below tool relevant to their domain. 
+Each student is to take on an exploration and investigative research of tools below relevant to their major. 
+
+\begin{itemize}
+    \item Computer Science: Python Websockets package (API requests and system integration)
+    \item Data Science: choose between Python NumPy or Pandas package (data analytics)
+    \item Cybersecurity: choose between Wireshark or Burp Suite (network security analysis)
+    \item Software Engineering: choose between Python Pytest or UnitTest (software testing)
+\end{itemize}
+If there is a fifth member:
+\begin{itemize}
+    \item Human-Computer Interaction (HCI): Figma (UI \& UX design)
+\end{itemize}
+
+\vspace{4ex}
+
+You should then describe:
+\begin{enumerate}
+    \item What are the main functionalities of the tool? Describe at least 3.
+    \item What is the importance of the tool in the relevant major (CS, SE, Cybersec, DS) and role in the given problem above?
+    \item What are the weaknesses or limitations of the tool? Describe at least 3.
+\end{enumerate}
+Target: 300 words
+
+\vspace{4ex}
+
+\textbf{Part B: More advanced technical skills}\\
+
+Each member attempting to undertake Advanced Strong component are to undertake self-learning of the selected tool for their allocated major and provide a practical example.
+
+\begin{itemize}
+    \item Develop a simple example using the tool.
+    \item Provide evidence in the form of screenshots showcasing implementation of the tool and results.
+    \item Please provide a reflective paragraph detailing how you undertook learning this tool, barriers you encountered and how you overcame it. What did you realise about the relevance of this tool in your respective major?
+    \item Assess the importance of this tool in addressing the disaster response scenario above.
+\end{itemize}
+
+Target: 250 words
+
+\vspace{6ex}
+
+\textbf{OVERALL REQUIREMENTS:}
+
+To achieve an "OK" rating for this task you must individually accomplish the following:
+\begin{itemize}
+\item \textbf{Component 1}
+	\begin{itemize}
+	\item Created a project in your Github repository to track and manage progress of the project. Issues are allocated to respective members and closed when completed. Tasks are not too broad and have a clear goal.
+    \end{itemize}
+		
+\item \textbf{Component 2}
+	\begin{itemize}
+	\item Select tools relevant to your chosen major. 
+        \begin{itemize}
+            \item Answer the following questions in Part A and B
+            \item Describe the main functionalities of the identified tools
+            \item The ways in which those tools are used in the industry of your chosen major;
+            \item At least 3 weaknesses or limitations of each of the tools
+        \end{itemize}
+    \end{itemize}
+\item Referencing
+	\begin {itemize}
+	\item You have provided in-text references (IEEE) to support your claims or where they gathered the information from.
+	\item You have a reference list following the IEEE referencing guidelines.
+		\begin{itemize}
+    		\item Some common things to look for to see whether your have correctly followed the referencing guide are:
+    		\item Sources are listed in alphabetical order
+    		\item The sources you have listed are only the sources that are present in-text.
+    		\item All sources seen in-text are included in the reference list.
+    		\item You followed the correct convention for references that don’t have author’s details or multiple sources have the same author and year of publication
+    		\item You have included the required information for the source type as outlined in the guide.
+    		\item Sources are not a list (i.e. dotpoints)
+		\end{itemize}
+	\end{itemize}
+\end{itemize}
+
+To achieve a STRONG rating you must accomplish all of the above in addition to the following:
+\begin{itemize}
+    \item You have demonstrated the use of your selected items either through activity in Git, or through including items in this report.
+    \item You have added your tutor to your git repository and when they view it they are able to see your activity that demonstrates the use of your selected tool
+    \item You have included screenshots and annotations (where necessary) in your report and provided an explanation of your undertaking of advanced technical skills
+    \item Reflective response in component 2B shows a deep understanding of the learning process and the tool
+\end{itemize}
+
+\vspace{4ex}
+
+% ========================================================
+
+\subsection{Tools and Skills for \majA: \studA}
+
+\subsubsection{Part A: Exploration of tech tools}
+
+Your text goes here
+
+\subsubsection{Part B: Technical Skills and Analysis}
+
+Your text goes here
+
+
+
+% ========================================================
+
+\subsection{Tools and Skills for \majB: \studB}
+
+\subsubsection{Part A: Exploration of tech tools}
+
+Your text goes here
+
+\subsubsection{Part B: Technical Skills and Analysis}
+
+Your text goes here
+
+
+
+% ========================================================
+
+\subsection{Tools and Skills for \majC: \studC}
+
+\subsubsection{Part A: Exploration of tech tools}
+
+Your text goes here
+
+\subsubsection{Part B: Technical Skills and Analysis}
+
+Your text goes here
+
+
+
+% ========================================================
+
+\subsection{Tools and Skills for \majD: \studD}
+
+\subsubsection{Part A: Exploration of tech tools}
+
+Your text goes here
+
+\subsubsection{Part B: Technical Skills and Analysis}
+
+Your text goes here
+
+%=======================================================================================
+
+\newpage
+\section{Submission contribution overview}
+
+For each submission, outline the approach taken to your teamwork, how you combined the various contributions, and whether there were any significant variations in the levels of involvement. (Target = $\sim$100-300 words).
+
+\subsection{Submission 1 contribution overview}
+
+As above, for submission 1
+
+\subsection{Submission 2 contribution overview}
+
+As above, for submission 2
+
+\subsection{Submission 3 contribution overview}
+
+As above, for submission 3
+
+
+%=======================================================================================
+
+\newpage
+
+\bibliographystyle{IEEEtran}
+\bibliography{main}
+
+\end{document}
+\end{report}
